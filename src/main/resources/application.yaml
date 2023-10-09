@@ -1,0 +1,39 @@
+#server:
+#  port: 8055
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
+#    url: jdbc:postgresql://localhost:5432/momentsqa_db
+spring:
+  banner:
+    location: banner.txt
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:postgresql://localhost:5432/momentsqa_db
+    driver-class-name: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            client-id: 5328b423a64a03a64701
+            client-secret: 1b65914d9b906716c803708321d4201f7b52b795
+          google:
+            client-id: 983844177181-gbucqhq4g45bctuoflv3gj30416csu75.apps.googleusercontent.com
+            client-secret: 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

@@ -1,0 +1,22 @@
+server:
+  port: 8055
+
+spring:
+  datasource:
+    platform: postgres
+#    url: jdbc:postgresql://172.27.0.2:5432/momentsqa_db
+#    diverClassName: org.postgresql.Driver
+#    username: postgres
+#    password: postgres
+    url: jdbc:postgresql://localhost:5432/momentsqa_db
+    diverClassName: org.postgresql.Driver
+    username: postgres
+    password: postgres
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true

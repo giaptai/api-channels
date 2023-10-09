@@ -1,0 +1,29 @@
+version: "3.8"
+
+services:
+  psql-db:
+    image: postgres:15
+    container_name: psql-db-compose
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=momentsqa_db
+    ports:
+      - '5435:5432'
+    volumes:
+      - D:\postgres_container_data:/var/lib/postgresql/data
+
+  spring-be:
+    container_name: spring-app-compose
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - '9050:8055'
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://psql-db:5432/momentsqa_db   # psql-db is service name
+      - SPRING_DATASOURCE_USER=postgres
+      - SPRING_DATASOURCE_PASSWORD=postgres
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    depends_on:
+      - psql-db # psql-db is service name
