@@ -27,3 +27,16 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
     depends_on:
       - psql-db # psql-db is service name
+
+  rabbitmq:
+    image: rabbitmq:3.12.6-management
+    container_name: rabbitmq_auth
+#    restart: unless-stopped
+    ports:
+      - '5673:5672'
+      - '15673:15672'
+    environment:
+      RABBITMQ_DEFAULT_USER: minhthu
+      RABBITMQ_DEFAULT_PASS: minhthu
+
+

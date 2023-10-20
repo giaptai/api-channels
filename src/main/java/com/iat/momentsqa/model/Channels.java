@@ -41,7 +41,7 @@ public class Channels{
     @Column(columnDefinition = "text")
     String logoURL;
 
-    @OneToMany(mappedBy = "channels", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "channels", fetch = FetchType.EAGER)
     @JsonIgnoreProperties({ "channels" })
 //    @JsonIgnore
 //    @JsonManagedReference

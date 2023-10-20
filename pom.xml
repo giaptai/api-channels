@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.iat</groupId>
-	<artifactId>momentsqa</artifactId>
+	<artifactId>api-channels</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>momentsqa</name>
 	<description>Demo project for Spring Boot</description>
@@ -23,8 +23,10 @@
 		<jjwt-api.version>0.11.5</jjwt-api.version>
 		<jjwt-impl.version>0.11.5</jjwt-impl.version>
 		<jjwt-jackson.version>0.11.5</jjwt-jackson.version>
+		<amqp-rabbitmq.version>3.1.2</amqp-rabbitmq.version>
 	</properties>
 	<dependencies>
+
 		<dependency>
 			<groupId>org.mapstruct</groupId>
 			<artifactId>mapstruct</artifactId>
@@ -37,8 +39,14 @@
 <!--		</dependency>-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-amqp</artifactId>
+			<version>${amqp-rabbitmq.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
+
 		<dependency>
 			<groupId>com.fasterxml.jackson.dataformat</groupId>
 			<artifactId>jackson-dataformat-xml</artifactId>
